@@ -417,7 +417,7 @@ if(!function_exists("hn_fin_consulta_ciclos_mensal")){
             'nopaging' => true,
             'post_type' => 'hn_fin_ciclo',
             'post_status' => 'publish',
-'posts_per_page' => -1,
+            'posts_per_page' => -1,
             'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
@@ -438,10 +438,11 @@ if(!function_exists("hn_fin_consulta_ciclos_mensal")){
 if(!function_exists("hn_fin_consulta_ciclos_bimestre")){
     function hn_fin_consulta_ciclos_bimestre(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
                     'value'   => 'B',
@@ -461,10 +462,11 @@ if(!function_exists("hn_fin_consulta_ciclos_bimestre")){
 if(!function_exists("hn_fin_consulta_ciclos_trimestre")){
     function hn_fin_consulta_ciclos_trimestre(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
                     'value'   => 'T',
@@ -484,10 +486,11 @@ if(!function_exists("hn_fin_consulta_ciclos_trimestre")){
 if(!function_exists("hn_fin_consulta_ciclos_quadrimestre")){
     function hn_fin_consulta_ciclos_quadrimestre(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
                     'value'   => 'Q',
@@ -507,10 +510,11 @@ if(!function_exists("hn_fin_consulta_ciclos_quadrimestre")){
 if(!function_exists("hn_fin_consulta_ciclos_semestre")){
     function hn_fin_consulta_ciclos_semestre(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
                     'value'   => 'S',
@@ -530,10 +534,11 @@ if(!function_exists("hn_fin_consulta_ciclos_semestre")){
 if(!function_exists("hn_fin_consulta_ciclos_anual")){
     function hn_fin_consulta_ciclos_anual(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_nome',
                     'value'   => 'A',
@@ -553,10 +558,11 @@ if(!function_exists("hn_fin_consulta_ciclos_anual")){
 if(!function_exists("hn_fin_consulta_ciclos_01")){
     function hn_fin_consulta_ciclos_01(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '1',
@@ -598,10 +604,11 @@ if(!function_exists("hn_fin_consulta_ciclos_05")){
 if(!function_exists("hn_fin_consulta_ciclos_10")){
     function hn_fin_consulta_ciclos_10(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '10',
@@ -621,10 +628,11 @@ if(!function_exists("hn_fin_consulta_ciclos_10")){
 if(!function_exists("hn_fin_consulta_ciclos_15")){
     function hn_fin_consulta_ciclos_15(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '15',
@@ -644,10 +652,11 @@ if(!function_exists("hn_fin_consulta_ciclos_15")){
 if(!function_exists("hn_fin_consulta_ciclos_20")){
     function hn_fin_consulta_ciclos_20(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '20',
@@ -667,10 +676,11 @@ if(!function_exists("hn_fin_consulta_ciclos_20")){
 if(!function_exists("hn_fin_consulta_ciclos_25")){
     function hn_fin_consulta_ciclos_25(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '25',
@@ -690,10 +700,11 @@ if(!function_exists("hn_fin_consulta_ciclos_25")){
 if(!function_exists("hn_fin_consulta_ciclos_28")){
     function hn_fin_consulta_ciclos_28(){
         $args = array(
-          'post_type' => 'hn_fin_ciclo',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_ciclo',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_ciclo_dia_emissao',
                     'value'   => '28',
@@ -714,10 +725,11 @@ if(!function_exists("hn_fin_consulta_ciclos_28")){
 if(!function_exists("hn_fin_consulta_instancias_servico")){
     function hn_fin_consulta_instancias_servico($ciclo_p = null, $ciclo_d = null, $lancados = null){
         $args = array(
-          'post_type' => 'hn_fin_insta',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_insta',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_insta_data_fim',
                     'compare' => 'NOT EXISTS',
@@ -762,10 +774,11 @@ if(!function_exists("hn_fin_consulta_instancias_servico")){
 if(!function_exists("hn_fin_consulta_instancias_servico_lancados")){
     function hn_fin_consulta_instancias_servico_lancados($instancias_serv = null, $datas = null){
         $args = array(
-          'post_type' => 'hn_fin_lanca',
-          'post_status' => 'publish',
-'posts_per_page' => -1,
-          'meta_query' => array(
+            'nopaging' => true,
+            'post_type' => 'hn_fin_lanca',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'meta_query' => array(
                 array(
                     'key'     => 'hn_fin_lanca_item_servico',
                     'value'   => $instancias_serv,
