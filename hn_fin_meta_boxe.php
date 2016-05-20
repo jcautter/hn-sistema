@@ -1086,10 +1086,10 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                             //FIM CEP AUTOMATICO
                             
                             //SE CPF PREENCHER NOME DO CLIENTE AUTO
-                            jQuery("#hn_fin_financeiro_nome" ).change(function() {
+                            /*jQuery("#hn_fin_financeiro_nome" ).change(function() {
                                 nome = jQuery("#hn_fin_financeiro_nome" ).val()
                                 jQuery("#hn_fin_financeiro_nome_cliente").val(nome);
-                            });
+                            });*/
                             //FIM SE CPF PREENCHER NOME DO CLIETNE AUTO
                             
                             // MÁSCARAS DOS CAMPOS
