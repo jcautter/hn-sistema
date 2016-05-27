@@ -245,6 +245,45 @@ if(!function_exists("create_".RADICALFIN."_post_types")){
 				wp_update_post($post);
 				add_action('wp_insert_post',"resolvetitle_".RADICALFIN."_post_types");
 			}
+            //POST LANCAMENTOS
+            if($post["post_type"] == RADICALFIN.'_lanca'){
+				remove_action('wp_insert_post', "resolvetitle_".RADICALFIN."_post_types");
+				$tipo = get_post_meta($id, 'hn_fin_lanca_tipo_lancamento', 1);
+                
+                $datas = get_post_meta($id, 'hn_fin_lanca_data', 1);
+                $data = str_replace("-", "", substr($datas, -8));
+                
+                $id_servico = get_post_meta($id, 'hn_fin_lanca_servico', 1);
+                $nome_servico = get_post_meta($id_servico, 'hn_fin_servicos_nome', 1);
+                
+                
+                $id_item_serv = get_post_meta($id, 'hn_fin_lanca_item_servico', 1);
+                $id_ciclo = get_post_meta($id_item_serv, 'hn_fin_insta_ciclo', 1);
+                $recorrencia = get_post_meta($id_ciclo, 'hn_fin_ciclo_nome', 1);
+                $recorrencia = substr($recorrencia,0,1);
+                
+                $id_cliente = get_post_meta($id, 'hn_fin_lanca_empresa', 1);
+                $nome_cliente = get_post_meta($id_cliente, 'hn_fin_financeiro_nome', 1);
+                
+                $valor = get_post_meta($id, 'hn_fin_lanca_valor', 1);
+                
+                $id_centro_custo = get_post_meta($id, 'hn_fin_lanca_centro_custo', 1);
+                $nome_centro_custo = get_post_meta($id_centro_custo, 'hn_fin_centros_nome', 1);
+                $desc_centro_custo = get_post_meta($id_centro_custo, 'hn_fin_centros_descricao', 1);
+                $centro_custo = $nome_centro_custo . " " . $desc_centro_custo;
+                
+                $id_servico = get_post_meta($id, 'hn_fin_lanca_servico', 1);
+                $servico = get_post_meta($id_servico, 'hn_fin_servicos_nome', 1);
+                
+                if($tipo == "receita"){
+                    $nome_fim = $data . " | " . $recorrencia . " | " . $nome_servico . " | " . $nome_cliente . " | R$ " . $valor . " | " . "IS " . $id_item_serv;
+                }if($tipo == "despesa"){
+                    $nome_fim = $data . " | " . $centro_custo . " | " . $nome_cliente . " | R$ " . $valor . " | " . $servico;
+                }
+				$post["post_title"] = $nome_fim;
+				wp_update_post($post);
+				add_action('wp_insert_post',"resolvetitle_".RADICALFIN."_post_types");
+			}
 		}
 		add_action('wp_insert_post',"resolvetitle_".RADICALFIN."_post_types");
 	}
