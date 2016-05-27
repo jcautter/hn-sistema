@@ -1481,22 +1481,22 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
 					<script type="text/javascript">
 						jQuery(document).ready(function(){
 							jQuery('#sbg_box').remove();
-                            jQuery("#hn_fin_lanca_favorecido").prop('required',true);
-                            jQuery("#hn_fin_lanca_servico").prop('required',true);
-                            jQuery("#hn_fin_lanca_empresa").prop('required',true);
-                            jQuery("#hn_fin_lanca_valor").prop('required',true);
-                            jQuery("#hn_fin_lanca_data").prop('required',true);
+                            //jQuery("#hn_fin_lanca_favorecido").prop('required',true);
+                            //jQuery("#hn_fin_lanca_servico").prop('required',true);
+                            //jQuery("#hn_fin_lanca_empresa").prop('required',true);
+                            //jQuery("#hn_fin_lanca_valor").prop('required',true);
+                            //jQuery("#hn_fin_lanca_data").prop('required',true);
                             //jQuery("#hn_fin_lanca_nota_fiscal").prop('required',true);
-                            jQuery("#hn_fin_lanca_valor").prop('required',true);
-                            jQuery("#hn_fin_lanca_baixa").prop('required',true);
+                            //jQuery("#hn_fin_lanca_valor").prop('required',true);
+                            //jQuery("#hn_fin_lanca_baixa").prop('required',true);
                             //jQuery("#hn_fin_lanca_parcela").prop('required',true);
                             //alert('a')
                             if(jQuery("input[name='hn_fin_lanca_tipo_lancamento']").is(':checked')) { 
                                 if(jQuery("input:radio[name='hn_fin_lanca_tipo_lancamento']:checked").val() == "receita"){
                                     jQuery("#hn_fin_lanca_centro_lucro").parent().parent().show();
                                     jQuery("#hn_fin_lanca_centro_custo").parent().parent().hide();
-                                    jQuery("#hn_fin_lanca_centro_lucro").prop('required',true);
-                                    jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
+                                    //jQuery("#hn_fin_lanca_centro_lucro").prop('required',true);
+                                    //jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
                                     
                                     
                                     jQuery("#hn_fin_lanca_favorecido").parent().parent().show();
@@ -1533,20 +1533,20 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                                     //jQuery("#hn_fin_lanca_item_sevico").parent().parent().show();
                                     jQuery("#hn_fin_lanca_data").parent().parent().show();
                                     jQuery("#hn_fin_lanca_valor").parent().parent().show();
+                                    jQuery("label[for='hn_fin_lanca_servico']").parent().parent().show();
                                     //jQuery("#hn_fin_lanca_nota_fiscal").parent().parent().show();
                                     //jQuery("#hn_fin_lanca_baixa").parent().parent().show();
                                     jQuery("label[for='hn_fin_lanca_item_servico']").parent().parent().show();
                                     jQuery("label[for='hn_fin_lanca_baixa']").parent().parent().show();
                                     jQuery("#hn_fin_lanca_centro_lucro").parent().parent().hide();
                                     jQuery("#hn_fin_lanca_centro_custo").parent().parent().show();
-                                    jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
-                                    jQuery("#hn_fin_lanca_centro_custo").prop('required',true);
+                                    //jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
+                                    //jQuery("#hn_fin_lanca_centro_custo").prop('required',true);
                                     jQuery("#hn_fin_lanca_centro_lucro").parent().parent().hide();
                                     
                                     
                                     
                                     jQuery("label[for='hn_fin_lanca_item_servico']").parent().parent().hide();
-                                    jQuery("label[for='hn_fin_lanca_servico']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_parcela']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_nota_fiscal']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_data_cobranca']").parent().parent().hide();
@@ -1576,8 +1576,8 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                                 jQuery("#hn_fin_lanca_centro_lucro").parent().parent().hide();
                                 jQuery("#hn_fin_lanca_centro_custo").parent().parent().hide();
                                 jQuery("label[for='hn_fin_lanca_obs']").parent().parent().hide();
-                                jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
-                                jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
+                                //jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
+                                //jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
                                 jQuery("label[for='hn_fin_lanca_data_vencimento']").parent().parent().hide();
                                 jQuery("label[for='hn_fin_lanca_data_arrecadacao']").parent().parent().hide();
                                 jQuery("label[for='hn_fin_lanca_pdf']").parent().parent().hide();
@@ -1587,8 +1587,8 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                                 if(jQuery(this).val() == "receita"){
                                     jQuery("#hn_fin_lanca_centro_lucro").parent().parent().show();
                                     jQuery("#hn_fin_lanca_centro_custo").parent().parent().hide();
-                                    jQuery("#hn_fin_lanca_centro_lucro").prop('required',true);
-                                    jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
+                                    //jQuery("#hn_fin_lanca_centro_lucro").prop('required',true);
+                                    //jQuery("#hn_fin_lanca_centro_custo").prop('required',false);
                                     
                                     
                                     jQuery("#hn_fin_lanca_favorecido").parent().parent().show();
@@ -1627,8 +1627,8 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                                     jQuery("label[for='hn_fin_lanca_baixa']").parent().parent().show();
                                     jQuery("#hn_fin_lanca_centro_lucro").parent().parent().hide();
                                     jQuery("#hn_fin_lanca_centro_custo").parent().parent().show();
-                                    jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
-                                    jQuery("#hn_fin_lanca_centro_custo").prop('required',true);
+                                    //jQuery("#hn_fin_lanca_centro_lucro").prop('required',false);
+                                    //jQuery("#hn_fin_lanca_centro_custo").prop('required',true);
                                     
                                     jQuery("label[for='hn_fin_lanca_data_vencimento']").parent().parent().show();
                                     jQuery("label[for='hn_fin_lanca_data_arrecadacao']").parent().parent().show();
@@ -1636,11 +1636,11 @@ if(!function_exists("create_".RADICALFIN."_meta_boxes")){
                                     jQuery("label[for='hn_fin_lanca_data']").parent().parent().show();
                                     jQuery("label[for='hn_fin_lanca_valor_multa']").parent().parent().show();
                                     jQuery("label[for='hn_fin_lanca_contabil']").parent().parent().show();
+                                    jQuery("label[for='hn_fin_lanca_servico']").parent().parent().show();
                                     
                                     
                                     
                                     jQuery("label[for='hn_fin_lanca_item_servico']").parent().parent().hide();
-                                    jQuery("label[for='hn_fin_lanca_servico']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_parcela']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_nota_fiscal']").parent().parent().hide();
                                     jQuery("label[for='hn_fin_lanca_data_cobranca']").parent().parent().hide();
