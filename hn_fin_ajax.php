@@ -1,6 +1,118 @@
 <?php
 $arr = $_POST; //you need to grab the data via the POST (or request) global.
 //this is just a check to show that the SQL statement is correct. Replace with your mysql connection/quer
+if(!function_exists("hn_fin_relatorio_conta_contabil")){
+    function hn_fin_relatorio_conta_contabil(){
+        $batata = $_REQUEST['batata'];
+        if($batata == "frita"){
+            $args = array(
+                'post_type' => 'hn_fin_conta',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+            );
+            $query = null;
+            $query = new WP_Query($args);
+            $lista = array();        
+            foreach($query->posts as $item){
+                $id = $item->ID;
+                $meta = get_post_meta($id);
+                
+                $lista[] = $meta;
+            }
+            //$array = array_unique (array_merge ($array1, $array2));
+            $cabecalho = array();
+            $cabecalho_pre = array();
+            foreach($lista as $linha){
+                $cabecalho_pre = array();
+                foreach($linha as $header => $coluna){
+                    $cabecalho_pre[] = $header;
+                }
+                $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
+            }
+            echo "<table>";
+            echo "<tr>";
+            foreach($cabecalho as $cabeca){
+                echo "<td>";
+                echo $cabeca;
+                echo "</td>";
+            }
+            
+            echo "</tr>";
+            foreach($lista as $linha){
+                echo "<tr>";
+                foreach($cabecalho as $cabeca){
+                    echo "<td>";
+                    if( isset($linha[$cabeca]) ){
+                        echo $linha[$cabeca][0];
+                    }
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+            die();
+        }
+     }
+}
+add_action('wp_ajax_hn_fin_relatorio_conta_contabil', 'hn_fin_relatorio_conta_contabil', 1);
+add_action('wp_ajax_nopriv_hn_fin_relatorio_conta_contabil', 'hn_fin_relatorio_conta_contabil', 1);
+
+if(!function_exists("hn_fin_relatorio_centros")){
+    function hn_fin_relatorio_centros(){
+        $naosei = $_REQUEST['naosei'];
+        if($naosei == "seisim"){
+            $args = array(
+                'post_type' => 'hn_fin_centros',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+            );
+            $query = null;
+            $query = new WP_Query($args);
+            $lista = array();        
+            foreach($query->posts as $item){
+                $id = $item->ID;
+                $meta = get_post_meta($id);
+                
+                $lista[] = $meta;
+            }
+            //$array = array_unique (array_merge ($array1, $array2));
+            $cabecalho = array();
+            $cabecalho_pre = array();
+            foreach($lista as $linha){
+                $cabecalho_pre = array();
+                foreach($linha as $header => $coluna){
+                    $cabecalho_pre[] = $header;
+                }
+                $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
+            }
+            echo "<table>";
+            echo "<tr>";
+            foreach($cabecalho as $cabeca){
+                echo "<td>";
+                echo $cabeca;
+                echo "</td>";
+            }
+            
+            echo "</tr>";
+            foreach($lista as $linha){
+                echo "<tr>";
+                foreach($cabecalho as $cabeca){
+                    echo "<td>";
+                    if( isset($linha[$cabeca]) ){
+                        echo $linha[$cabeca][0];
+                    }
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+            die();
+        }
+     }
+}
+add_action('wp_ajax_hn_fin_relatorio_centros', 'hn_fin_relatorio_centros', 1);
+add_action('wp_ajax_nopriv_hn_fin_relatorio_centros', 'hn_fin_relatorio_centros', 1);
+
 if(!function_exists("hn_fin_relatorio_lancamento")){
     function hn_fin_relatorio_lancamento(){
         $leoburro = $_REQUEST['leoburro'];
