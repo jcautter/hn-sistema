@@ -1,6 +1,73 @@
 <?php
 $arr = $_POST; //you need to grab the data via the POST (or request) global.
 //this is just a check to show that the SQL statement is correct. Replace with your mysql connection/quer
+
+if(!function_exists("hn_fin_relatorio_servicos")){
+    function hn_fin_relatorio_servicos(){
+        $joao = $_REQUEST['joao'];
+        if($joao == "marcos"){
+            $args = array(
+                'post_type' => 'hn_fin_servicos',
+                'post_status' => 'publish',
+                'posts_per_page' => -1,
+            );
+            $query = null;
+            $query = new WP_Query($args);
+            $lista = array();        
+            foreach($query->posts as $item){
+                $id = $item->ID;
+                $meta = get_post_meta($id);
+                $meta['ID'] = array($id);
+                $lista[] = $meta;
+            }
+            //$array = array_unique (array_merge ($array1, $array2));
+            $cabecalho = array();
+            $cabecalho_pre = array();
+            foreach($lista as $linha){
+                $cabecalho_pre = array();
+                foreach($linha as $header => $coluna){
+                    $cabecalho_pre[] = $header;
+                }
+                $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
+            }
+            
+            $nomecabeca = array(
+                'ID' => 'ID',
+                'hn_fin_servicos_nome' => 'Nome',
+                'hn_fin_servicos_receita_despesa' => 'Tipo',
+                'hn_fin_servicos_valor' => 'Valor',
+                'hn_fin_servicos_centro_custo' => 'Centro de Custo',
+                'hn_fin_servicos_centro_lucro' => 'Centro de Lucro',
+            );
+            
+            echo "<table>";
+            echo "<tr>";
+            foreach($nomecabeca as $cabeca){
+                echo "<td>";
+                echo $cabeca;
+                echo "</td>";
+            }
+            
+            echo "</tr>";
+            foreach($lista as $linha){
+                echo "<tr>";
+                foreach($nomecabeca as $key => $cabeca){
+                    echo "<td>";
+                    if( isset($linha[$key]) ){
+                        echo $linha[$key][0];
+                    }
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+            echo "</table>";
+            die();
+        }
+     }
+}
+add_action('wp_ajax_hn_fin_relatorio_servicos', 'hn_fin_relatorio_servicos', 1);
+add_action('wp_ajax_nopriv_hn_fin_relatorio_servicos', 'hn_fin_relatorio_servicos', 1);
+
 if(!function_exists("hn_fin_relatorio_conta_contabil")){
     function hn_fin_relatorio_conta_contabil(){
         $batata = $_REQUEST['batata'];
