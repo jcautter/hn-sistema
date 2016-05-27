@@ -16,7 +16,7 @@ if(!function_exists("hn_fin_relatorio_conta_contabil")){
             foreach($query->posts as $item){
                 $id = $item->ID;
                 $meta = get_post_meta($id);
-                
+                $meta['ID'] = array($id);
                 $lista[] = $meta;
             }
             //$array = array_unique (array_merge ($array1, $array2));
@@ -29,9 +29,16 @@ if(!function_exists("hn_fin_relatorio_conta_contabil")){
                 }
                 $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
             }
+            
+            $nomecabeca = array(
+                'hn_fin_conta_nome' => 'Tipo',
+                'hn_fin_conta_descricao' => 'Nome',
+                'ID' => 'ID',
+            );
+            
             echo "<table>";
             echo "<tr>";
-            foreach($cabecalho as $cabeca){
+            foreach($nomecabeca as $cabeca){
                 echo "<td>";
                 echo $cabeca;
                 echo "</td>";
@@ -40,10 +47,10 @@ if(!function_exists("hn_fin_relatorio_conta_contabil")){
             echo "</tr>";
             foreach($lista as $linha){
                 echo "<tr>";
-                foreach($cabecalho as $cabeca){
+                foreach($nomecabeca as $key => $cabeca){
                     echo "<td>";
-                    if( isset($linha[$cabeca]) ){
-                        echo $linha[$cabeca][0];
+                    if( isset($linha[$key]) ){
+                        echo $linha[$key][0];
                     }
                     echo "</td>";
                 }
@@ -73,9 +80,9 @@ if(!function_exists("hn_fin_relatorio_centros")){
                 $id = $item->ID;
                 $meta = get_post_meta($id);
                 
+                $meta['ID'] = array($id);
                 $lista[] = $meta;
             }
-            //$array = array_unique (array_merge ($array1, $array2));
             $cabecalho = array();
             $cabecalho_pre = array();
             foreach($lista as $linha){
@@ -85,9 +92,17 @@ if(!function_exists("hn_fin_relatorio_centros")){
                 }
                 $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
             }
+            
+            
+            $nomecabeca = array(
+                'hn_fin_centros_tipo_pessoa' => 'Tipo',
+                'hn_fin_centros_nome' => 'Nome',
+                'hn_fin_centros_descricao' => 'Descrição',
+                'ID' => 'ID',
+            );
             echo "<table>";
             echo "<tr>";
-            foreach($cabecalho as $cabeca){
+            foreach($nomecabeca as $cabeca){
                 echo "<td>";
                 echo $cabeca;
                 echo "</td>";
@@ -96,10 +111,10 @@ if(!function_exists("hn_fin_relatorio_centros")){
             echo "</tr>";
             foreach($lista as $linha){
                 echo "<tr>";
-                foreach($cabecalho as $cabeca){
+                foreach($nomecabeca as $key => $cabeca){
                     echo "<td>";
-                    if( isset($linha[$cabeca]) ){
-                        echo $linha[$cabeca][0];
+                    if( isset($linha[$key]) ){
+                        echo $linha[$key][0];
                     }
                     echo "</td>";
                 }
@@ -176,8 +191,67 @@ if(!function_exists("hn_fin_relatorio_lancamento")){
                 }
                 $cabecalho = array_unique (array_merge ($cabecalho, $cabecalho_pre));
             }
+            $nomecabeca = array(
+                'ID' => 'ID',
+                'hn_fin_lanca_tipo_lancamento' => 'Tipo',
+                'hn_fin_lanca_favorecido' => 'ID Favorecido',
+                'hn_fin_lanca_servico' => 'ID Serviço',
+                'hn_fin_lanca_item_servico' => 'ID Item de Serviço',
+                'hn_fin_lanca_empresa' => 'ID Empresa',
+                'hn_fin_lanca_data' => 'Data',
+                'hn_fin_lanca_data_vencimento' => 'Data de Vencimento',
+                'hn_fin_lanca_dominio' => 'Domínio',
+                'hn_fin_lanca_contabil' => 'ID Conta Contábil',
+                'hn_fin_lanca_parcela' => 'Parcela',
+                'hn_fin_lanca_valor' => 'Lança Valor',
+                'hn_fin_lanca_centro_lucro' => 'Centro de Lucro',
+                'hn_fin_lanca_parcela' => 'Parcela',
+                'hn_fin_lanca_cnpj_cpf' => 'CNPJ/CPF',
+                'hn_fin_lanca_favorecido_nome' => 'Nome Favorecido',
+                'hn_fin_lanca_servico_nome' => 'Nome Serviço',
+                'hn_fin_lanca_ciclo' => 'Ciclo',
+                'hn_fin_lanca_empresa_cnpj_cpf' => 'Empresa CNPJ/CPF',
+                'hn_fin_lanca_empresa_nome' => 'Nome Empresa',
+                'hn_fin_conta_contabil_nome' => 'Nome Conta Contábil',
+                'hn_fin_conta_contabil_desc' => 'Descrição Conta Contábil',
+                'hn_fin_lanca_centro_lucro_nome' => 'Centro de Lucro',
+                'hn_fin_lanca_centro_lucro_descricao' => 'Centro de Lucro Descrição',
+                'hn_fin_emissao_mes' => 'Mes de Emissão',
+                'hn_fin_emissao_ano' => 'Ano de Emissão',
+                'hn_fin_vencimento_mes' => 'Mes de Vencimento',
+                'hn_fin_vencimento_ano' => 'Ano de Vencimento',
+                'hn_fin_lanca_pdf' => 'ID PDF',
+                'hn_fin_lanca_baixa' => 'Status Baixa',
+                'hn_fin_lanca_data_arrecadacao' => 'Data de Arrecadação',
+            );
             echo "<table>";
             echo "<tr>";
+            foreach($nomecabeca as $cabeca){
+                echo "<td>";
+                echo $cabeca;
+                echo "</td>";
+            }
+            
+            echo "</tr>";
+            foreach($lista as $linha){
+                echo "<tr>";
+                foreach($nomecabeca as $key => $cabeca){
+                    echo "<td>";
+                    if( isset($linha[$key]) ){
+                        echo $linha[$key][0];
+                    }
+                    /*
+                    if( isset($linha[$key]) ){
+                        echo $linha[$key][0];
+                    }*/
+                    echo "</td>";
+                }
+                echo "</tr>";
+            }
+            /*
+            echo "<table>";
+            echo "<tr>";
+            
             foreach($cabecalho as $cabeca){
                 echo "<td>";
                 echo $cabeca;
@@ -195,7 +269,7 @@ if(!function_exists("hn_fin_relatorio_lancamento")){
                     echo "</td>";
                 }
                 echo "</tr>";
-            }
+            }*/
             echo "</table>";
             die();
         }
