@@ -1,10 +1,23 @@
 <?php
 /**
- * 
+ * classe abtrata para criação de post types
  */
 if(!class_exists('PostType')){
 	abstract class PostType {
-			
+		/*
+		 * Variáveis
+		 * hook 	- string -
+		 * argument - array
+		 * 		label				-	string
+		 * 		singular_label		-	string
+		 * 		public				-	boolean
+		 * 		show_ui				-	boolean
+		 * 		capability_type		-	string
+		 * 		exclude_from_search	-	boolen
+		 * 		hierarchical		-	boolean
+		 * 		rewrite				-	boolean
+		 * 		supports 			-	array
+		 */	
 		private $hook;
 		private $argument;
 		
@@ -47,7 +60,6 @@ if(!class_exists('PostType')){
 					throw new Exception('Erro 10 - A lista de parametros do array deve conter "supports"  para criação de um post type');
 				}
 			}
-			
 			$this->hook = $hook;
 			$this->argument = $argument;
 			$this->register();
@@ -59,6 +71,7 @@ if(!class_exists('PostType')){
 		{
 			register_post_type($this->hook, $this->fin_args);
 		}
+		abstract protected function configure(); 
 	}
 }
 ?>
